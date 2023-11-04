@@ -301,6 +301,7 @@ nav a{
     height: 50%;
     overflow: hidden;
     margin-bottom: 30px;
+    transition: 500ms;
 }
 #carousel1>div{
     display: flex;
