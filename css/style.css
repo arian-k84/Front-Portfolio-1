@@ -302,6 +302,11 @@ nav a{
     overflow: hidden;
     margin-bottom: 30px;
     transition: 500ms;
+    text-align: justify;
+}
+#carousel1 p{
+    width: 80%;
+    text-align: justify;
 }
 #carousel1>div{
     display: flex;
@@ -516,9 +521,14 @@ footer .upper-section #email-input{
     margin-bottom: 20px;
 }
 footer .upper-section #email-input>input{
+    display:inline-block;
+    position: relative;
     border: 0;
-    width: 95%;
-    height: 90%;
+    width: 90%;
+    height: 80%;
+    margin: auto 0;
+    align-self: center;
+    vertical-align: middle;
 }
 footer .upper-section #email-input>input:focus{
     outline-width: 0;
@@ -563,12 +573,22 @@ footer .lower-section p, footer .lower-section a{
     font-size: clamp(15px, 2.5vmin, 20px);
 }
 footer .lower-section .text-info{
-    flex: 1 0 100%;
-    max-height: 50px;
-    margin-top: 20px;
-}
-footer #contact-us .lower-section>*:not(.text-info){
     flex: 1 0;
+    max-height: 33%;
+    margin-bottom: 20px;
+    order: 2;
+}
+footer .lower-section .phone-numbers{
+    flex: 1 0;
+    margin-bottom: 20px;
+    max-height: 33%;
+    order: 1;
+}
+footer .lower-section .email-address{
+    flex: 1 0 100%;
+    max-height: 33%;
+    margin-top: 20px;
+    order: 0;
 }
 /* footer>.lower-section>.contact-info{
     flex: 2 0;
@@ -576,6 +596,9 @@ footer #contact-us .lower-section>*:not(.text-info){
     gap: 30px;
 } */
 @media all and (max-width: 768px){
+    html{
+        scroll-snap-type: y mandatory;
+    }
     nav ul li{
         display: none;
     }
