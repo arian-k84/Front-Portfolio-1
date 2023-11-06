@@ -5,9 +5,12 @@ document.querySelector("#bgvid").playbackRate = 0.3
 
 async function lazy_load(target){
   await delay(100)
-  let lazy_loaders = target.querySelectorAll(".lazy-loading")
+  let lazy_loaders = target.querySelectorAll(".lazy-left, .lazy-right")
   if(lazy_loaders.length > 0){
-    lazy_loaders.forEach(x => x.classList.remove('lazy-loading'))
+    lazy_loaders.forEach(x => {
+      x.classList.remove('lazy-left')
+      x.classList.remove('lazy-right')
+    })
   }
 }
 
@@ -67,7 +70,7 @@ nav_menu_btn.addEventListener("click", async () =>{
     document.querySelectorAll('nav>ul li:not(#hmbgmenu)').forEach((el) =>{
       nav_mobile_menu.appendChild(el)
       el.style.display = "inline-block"
-      el.classList.add("lazy-loading")
+      el.classList.add("lazy-left")
       lazy_load(nav_mobile_menu)
     })
     nav_mobile_menu.style.display = "flex"
