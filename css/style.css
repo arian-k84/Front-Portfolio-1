@@ -655,7 +655,7 @@ footer .lower-section .email-address{
         margin-top: 0px;
         width: 100%;
     }
-    .service a, .service p, h3{
+    .service a, .service p, .service h3{
         font-size: clamp(11px, 2.5vmin, 20vw);
     }
     .service:nth-child(3){
