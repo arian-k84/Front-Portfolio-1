@@ -594,13 +594,13 @@ footer .lower-section .text-info{
     flex: 1 0;
     max-height: 33%;
     margin-bottom: 20px;
-    order: 2;
+    order: 1;
 }
 footer .lower-section .phone-numbers{
     flex: 1 0;
     margin-bottom: 20px;
     max-height: 33%;
-    order: 1;
+    order: 2;
 }
 footer .lower-section .email-address{
     flex: 1 0 100%;
