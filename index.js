@@ -91,7 +91,7 @@ async function typewriter_effect(text){
   let old_length = old_text.length
   for (let i = 0; i < old_text.length; i++) {
     text_node.nodeValue += old_text[i]
-    await delay(Math.max(1000/old_length, 30))
+    await delay(Math.max(800/old_length, 30))
   }
 }
 
