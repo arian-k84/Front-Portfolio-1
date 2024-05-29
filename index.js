@@ -3,11 +3,16 @@
 const nav = document.querySelector('nav');
 document.querySelector("#bgvid").playbackRate = 0.3
 
-async function lazy_load(target){
+async function lazy_load(target, iterate=false){
   await delay(100)
   let lazy_loaders = target.querySelectorAll(".lazy-left, .lazy-right")
   if(lazy_loaders.length > 0){
-    lazy_loaders.forEach(x => {
+    lazy_loaders.forEach((x,i) => {
+      if(iterate){
+        // x.style.transitionTimingFunction = 'ease-out';
+        // x.style.transitionDelay = `${Math.round(lazy_loaders.length/(i+1) * 200)}ms`;
+        x.style.transition = `${Math.round(lazy_loaders.length/(i+1) * 200)}ms ease-out`;
+      }
       x.classList.remove('lazy-left')
       x.classList.remove('lazy-right')
     })
@@ -18,7 +23,11 @@ const observer = new IntersectionObserver(entries =>{
   entries.forEach(entry =>{
     if(entry.isIntersecting){
       nav.classList.add("nav-transparent");
-      lazy_load(entry.target)
+      if(entry.target.querySelector('.iterate')){
+        lazy_load(entry.target, true)
+      }else{
+        lazy_load(entry.target)
+      }
     }else if(window.scrollY > 0){
       nav.classList.remove("nav-transparent");
     }
@@ -26,17 +35,46 @@ const observer = new IntersectionObserver(entries =>{
 }, {threshold:0.8})
 document.querySelectorAll("[data-important-section]").forEach((el) => observer.observe(el))
 
+let cur_order = 1
+let skipped_orders = []
 const text_observer = new IntersectionObserver(async entries =>{
-  for (entry of entries) {
+  for(entry of entries){
     if(entry.isIntersecting && entry.target.dataset.write_text == 'true'){
-      entry.target.dataset.write_text = 'false'
-      await typewriter_effect(entry.target)
-      await delay(100)
+      if (entry.target.dataset.write_order){
+        if(entry.target.dataset.write_order == cur_order){
+          entry.target.dataset.write_text = 'false'
+          entry.target.dataset.write_order = '0'
+          cur_order += 1
+          await typewriter_effect(entry.target)
+        }else if(entry.target.dataset.write_order == 1){
+          cur_order = 1
+          entry.target.dataset.write_text = 'false'
+          entry.target.dataset.write_order = '0'
+          cur_order += 1
+          await typewriter_effect(entry.target)
+        }else{
+          skipped_orders.push(entry.target)
+        }
+        if(skipped_orders){
+          for(el of skipped_orders){
+            if(el.dataset.write_order == cur_order){
+              el.dataset.write_text = 'false'
+              el.dataset.write_order = '0'
+              cur_order += 1
+              skipped_orders.splice(skipped_orders.indexOf(el), 1)
+              await typewriter_effect(el)
+            }
+          }
+        }
+      }else{
+        entry.target.dataset.write_text = 'false'
+        await typewriter_effect(entry.target)
+      }
     }else if(entry.target.dataset.write_text == 'false'){
       text_observer.unobserve(entry.target)
     }
   }
-}, {threshold:0.8})
+}, {threshold:0.7})
 document.querySelectorAll("[data-write_text]").forEach((el) => text_observer.observe(el))
 
 async function typewriter_effect(text){

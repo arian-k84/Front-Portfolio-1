@@ -50,10 +50,10 @@
             <header data-important-section>
                 <div id="introduction">
                     <span></span>
-                    <video id="bgvid" src="css/background_vid.mp4" loop autoplay muted ></video>
+                    <video id="bgvid" src="css/background_vid.mp4" loop autoplay muted controlsList="nodownload"></video>
                     <div id="introdesc">
                         <h1 data-write_text="true">Lorem ipsum</h1>
-                        <p data-write_text="true">consectetur adipiscing elit <a data-write_text="true" href="#">volutpat.</a></p>
+                        <p data-write_text="true" data-write_delay="500">consectetur adipiscing elit <a data-write_text="true" href="#">volutpat.</a></p>
                     </div>
                 </div>
             </header>
@@ -103,22 +103,22 @@
             <section data-important-section>
                 <div id="services">
                     
-                    <div class="service lazy-right">
+                    <div class="service lazy-right iterate">
                         <div class="service-img"><img src="css/computer.webp" alt="computer image"></div>
                         <h3>Ea, accusantium.</h2>
-                        <p data-write_text="true">Minus repellat, quasi temporibus velit magnam veritatis eligendi numquam.</p>
+                        <p data-write_text="true" data-write_order="1">Minus repellat, quasi temporibus velit magnam veritatis eligendi numquam.</p>
                         <a id="computer-services-btn">Computer Services</a>
                     </div>
-                    <div class="service lazy-right">
+                    <div class="service lazy-right iterate">
                         <div class="service-img"><img src="css/laptop.webp" alt="laptop image"></div>
                         <h3>Ex, numquam.</h2>
-                        <p data-write_text="true">Dolore itaque quam commodi veniam veritatis eligendi ab facilis.</p>
+                        <p data-write_text="true" data-write_order="2">Dolore itaque quam commodi veniam veritatis eligendi ab facilis.</p>
                         <a id="laptop-services-btn">Laptop Services</a>
                     </div>
-                    <div class="service lazy-right">
+                    <div class="service lazy-right iterate">
                         <div class="service-img"><img src="css/phone.webp" alt="mobile phone image"></div>
                         <h3>Id, eum.</h2>
-                        <p data-write_text="true">Dignissimos sit quasi temporibus dolor? veniam ab facilis rerum, quod.</p>
+                        <p data-write_text="true" data-write_order="3">Dignissimos sit quasi temporibus dolor? veniam ab facilis rerum, quod.</p>
                         <a id="phone-services-btn">Phone Services</a>
                     </div>
                 </div>
@@ -126,9 +126,9 @@
             <footer data-important-section>
                 <div id="contact-us">
                     <div class="upper-section">
-                        <div class="lazy-left">
+                        <div>
                             <h3>Explicabo laboriosam inventore.</h3>
-                            <p data-write_text="true">Exercitationem a cumque delectus officia odit qui officiis, eum nam!</p>
+                            <p data-write_text="true" data-write_delay="500">Exercitationem a cumque delectus officia odit qui officiis, eum nam!</p>
                             <div id="email-input">
                                 <input type="email" required placeholder="E-mail Address">
                             </div>
@@ -136,10 +136,10 @@
                                 <a href="https://mail.google.com/mail/?view=cm&fs=1&to=arian.khosravihoda84@gmail.com" target="_blank"><button type="submit">Contact Us</button></a>
                             </div>
                             <div id="social-media-boxes">
-                                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=arian.khosravihoda84@gmail.com" id="gmail-link" target="_blank"><img src="css/social-icons/gmail-icon.png" alt="gmail icon"></a>
-                                <a href="https://www.linkedin.com/in/arian-khosravi-12923a2aa/" id="linkedin-link" target="_blank"><img src="css/social-icons/linkedin-icon.png" alt="linkedin icon"></a>
-                                <a href="https://t.me/ArianK84" id="telegram-link" target="_blank"><img src="css/social-icons/telegram-icon.png" alt="telegram icon"></a>
-                                <a href="https://github.com/arian-k84" id="github-link" target="_blank"><img src="css/social-icons/github-icon.png" alt="github icon"></a>
+                                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=arian.khosravihoda84@gmail.com" class="lazy-left iterate" id="gmail-link" target="_blank"><img src="css/social-icons/gmail-icon.png" alt="gmail icon"></a>
+                                <a href="https://www.linkedin.com/in/arian-khosravi-12923a2aa/" class="lazy-left iterate" id="linkedin-link" target="_blank"><img src="css/social-icons/linkedin-icon.png" alt="linkedin icon"></a>
+                                <a href="https://t.me/ArianK84" class="lazy-left iterate" id="telegram-link" target="_blank"><img src="css/social-icons/telegram-icon.png" alt="telegram icon"></a>
+                                <a href="https://github.com/arian-k84" class="lazy-left iterate" id="github-link" target="_blank"><img src="css/social-icons/github-icon.png" alt="github icon"></a>
                             </div>
                         </div>
                     </div>
