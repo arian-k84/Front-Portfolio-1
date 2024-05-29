@@ -9,7 +9,7 @@ html{
     scroll-behavior: smooth !important;
     height: 100%;
     overflow-y: scroll;
-    scroll-snap-type: y proximity;
+    scroll-snap-type: y mandatory;
 }
 *:not(h1,h2,h3){
     margin: 0;
