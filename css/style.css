@@ -1,5 +1,6 @@
 :root{
     --text_color: rgb(51, 51, 51)
+     color-scheme: light only;
 }
 @font-face {
     font-family: customfont;
